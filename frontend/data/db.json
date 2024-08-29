@@ -1,0 +1,94 @@
+{
+  "upcomingClassesData": [
+    {
+      "id": "1",
+      "className": "UI/UX Designing",
+      "instructor": "Suriya R",
+      "action": "Jul 17th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "2",
+      "className": "Graphic Designing",
+      "instructor": "Priya Sweety",
+      "action": "Book now",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "3",
+      "className": "Design Hierarchy",
+      "instructor": "Leslie Alexander",
+      "action": "Book now",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "4",
+      "className": "Basics of Frontend",
+      "instructor": "Courtney Henry",
+      "action": "Jul 18th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "5",
+      "className": "Graphic Designing",
+      "instructor": "Jerome Bell",
+      "action": "Jul 17th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "6",
+      "className": "Graphic Designing",
+      "instructor": "Wade Warren",
+      "action": "Book now",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "7",
+      "className": "Graphic Designing",
+      "instructor": "Robert Fox",
+      "action": "Jul 18th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "8",
+      "className": "Graphic Designing",
+      "instructor": "Courtney Henry",
+      "action": "Jul 18th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "9",
+      "className": "Graphic Designing",
+      "instructor": "Eleanor Pena",
+      "action": "Book now",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    },
+    {
+      "id": "10",
+      "className": "Graphic Designing",
+      "instructor": "Guy Hawkins",
+      "action": "Jul 18th 24",
+      "date": "22nd June 10am",
+      "image": "https://s3-alpha-sig.figma.com/img/62b2/de86/3e5c02d1c4d27a7ec3537a08183734bc?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fIDEH2GA1TZzMr7wE~WSHEaMIfUFIfNQmp9XaSniNsoRI5xbPZ9Dnxn4E7QYT7Rnh5k-2K1jV7OjoWORtyP-3EFHfXJfQ4HKSXpJEY2OxewJ7wiBw2qlmGQN0WZQzCKlwTsLizgnR~xBusGkEf8Rg3bgFy6VuWo7978fyZCS7kDl1Jd2fkspN-nWWj0wmO-KE0u0juOgSvysXBFgte2YOX8~Gzgl-x3cuMRysb7UzjwZNx4~BmYzXsTCKaxZ2-WP6fbhgC1tj-8Bbi~V0GzesEhpqDYB8oG-S-4o8F1wZFjjBedWPLbgUf4leFe9vj2cnK7dp3qHl7p2SUfV8N8R~A__",
+      "additionalDetails": "Additional details"
+    }
+  ]
+}
