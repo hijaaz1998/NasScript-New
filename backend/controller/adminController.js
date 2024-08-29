@@ -22,8 +22,6 @@ export const addServiceDetails = async (req, res) => {
 
     const serviceData = await service.save();
 
-    res.status(201).json({success: true, serviceData})
-
     if (!serviceData) {
       return res.status(500).json({ error: "Failed to save service data" });
     }
@@ -34,23 +32,32 @@ export const addServiceDetails = async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 };
+
 export const getServiceDetails = async (req, res) => {
   try {
     const serviceData = await serviceModel.find();
 
-    if (!serviceData) {
+    if (!serviceData || serviceData.length === 0) {
       return res.status(404).json({ error: "No service data found" });
     }
 
+    const dataWithUrls = serviceData.map(service => ({
+      ...service._doc,
+      image: `${req.protocol}://${req.get('host')}/${service.image}`,
+    }));
+
+    console.log('dataWithUrls', dataWithUrls);
+
     return res.status(200).json({
       success: true,
-      data: serviceData,
+      data: dataWithUrls,
     });
   } catch (err) {
     console.error("Error fetching service details:", err);
     return res.status(500).json({ error: "Server error" });
   }
 };
+
 
 export const getSingleServiceDetails = async (req,res) =>{
   try{

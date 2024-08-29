@@ -33,6 +33,7 @@ const Service = () => {
   useEffect(() => {
     fetchServices();
   }, []);
+  console.log('services',services)
 
   return (
     <div>
