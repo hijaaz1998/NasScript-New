@@ -41,6 +41,7 @@ export function AddServices({ onServiceAdded }: AddServicesProps) {
     validationSchema: AddServicesSchema,
     onSubmit: async (values: valuesProps) => {
       try {
+        console.log('Values',values)
         const formData = new FormData();
         formData.append("name", values.name);
         formData.append("description", values.description);
@@ -49,6 +50,7 @@ export function AddServices({ onServiceAdded }: AddServicesProps) {
         }
 
         const response = await addServiceApi(formData);
+        console.log('first',response) 
         if (response?.data?.success) {
           resetForm();
           onServiceAdded();

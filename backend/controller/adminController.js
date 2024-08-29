@@ -1,22 +1,28 @@
 import { imageUpload } from "../utils/cloudinary.js";
+import path from 'path';
+import fs from 'fs';
 import serviceModel from "../models/serviceModel.js";
 
 export const addServiceDetails = async (req, res) => {
   try {
     const { description, name } = req.body;
+    const imageFile = req.file;
 
-    if (!req.files?.image || !description || !name) {
+    if (!imageFile || !description || !name) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    const image = await imageUpload(req.files.image);
+    const imagePath = path.join('uploads', imageFile.filename); 
 
     const service = new serviceModel({
-      image: image.url,
+      image: imagePath,
       description,
       name,
     });
+
     const serviceData = await service.save();
+
+    res.status(201).json({success: true, serviceData})
 
     if (!serviceData) {
       return res.status(500).json({ error: "Failed to save service data" });
@@ -28,7 +34,6 @@ export const addServiceDetails = async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 };
-
 export const getServiceDetails = async (req, res) => {
   try {
     const serviceData = await serviceModel.find();
