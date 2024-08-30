@@ -45,9 +45,7 @@ export const getServiceDetails = async (req, res) => {
       ...service._doc,
       image: `${req.protocol}://${req.get('host')}/${service.image}`,
     }));
-
-    console.log('dataWithUrls', dataWithUrls);
-
+    console.log('get',dataWithUrls)
     return res.status(200).json({
       success: true,
       data: dataWithUrls,
@@ -74,39 +72,49 @@ export const getSingleServiceDetails = async (req,res) =>{
   }
 }
 
-export const editServiceDetails = async(req,res)=>{
-  try{
+
+export const editServiceDetails = async (req, res) => {
+  try {
     const { description, name, serviceId } = req.body;
+    const imageFile = req.file; // Multer stores the uploaded file in req.file
 
-    if (!req.files?.image || !description || !name) {
-      return res.status(400).json({ error: "All fields are required" });
+    // Ensure required fields are provided
+    if (!description || !name || !serviceId) {
+      return res.status(400).json({ error: "Description, name, and serviceId are required" });
     }
 
-    const image = await imageUpload(req.files.image);
-
-    if (!image) {
-      return res.status(500).json({ error: "Image upload failed" });
-    }
-
-    const updatedService = await serviceModel.findByIdAndUpdate(
-      {_id:serviceId},
-      {
-        description,
-        name,
-        image: image.url,
-      },
-      { new: true } 
-    );
-
-    if (!updatedService) {
+    // Find the service by ID
+    const service = await serviceModel.findById(serviceId);
+    if (!service) {
       return res.status(404).json({ error: "Service not found" });
     }
 
-    return res.status(200).json({success:true, message: "Service updated successfully", service: updatedService });
-  }catch(err){
-    console.log(err)
+    // Prepare the update object
+    const updateData = {
+      description,
+      name,
+    };
+
+    // If a new image is provided, handle it
+    if (imageFile) {
+      // Define where the uploaded image will be stored
+      const imagePath = path.join('uploads', imageFile.filename);
+
+      // Update the image path
+      updateData.image = imagePath;
+    }
+
+    // Update the service with new data
+    const updatedService = await serviceModel.findByIdAndUpdate(serviceId, updateData, { new: true });
+    if (!updatedService) {
+      return res.status(500).json({ error: "Failed to update service" });
+    }
+    return res.status(200).json({ success: true, message: "Service updated successfully", service: updatedService });
+  } catch (err) {
+    console.error("Error updating service details:", err);
+    return res.status(500).json({ error: "Server error" });
   }
-}
+};
 
 export const deleteServiceDetails = async (req,res) =>{
   try{

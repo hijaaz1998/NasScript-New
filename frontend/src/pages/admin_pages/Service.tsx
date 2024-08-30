@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { deleteService, fetchServiceApi } from "@/api/Route";
 import { AddServices } from "../../components/admin_components/add_services/AddServices";
-import { ServiceProps } from "./type"; // Import the ServiceProps interface
+import { ServiceProps } from "./type"; 
 import { EditServices } from "@/components/admin_components/editservices/EditServices";
+import ConfirmationDialog from "./Modal/ConfirmationDialog";
+import toast from "react-hot-toast";
+
 
 const Service = () => {
   const [services, setServices] = useState<ServiceProps[]>([]);
+  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
+  const [currentServiceId, setCurrentServiceId] = useState<number | null>(null);
 
   const fetchServices = async () => {
     try {
@@ -18,22 +23,30 @@ const Service = () => {
     }
   };
 
-  const handleDelete = async (serviceid:number) =>{
-    try{
-      const response = await deleteService(serviceid)
+  const handleDelete = (serviceId: number) => {
+    setCurrentServiceId(serviceId);
+    setOpenConfirmDialog(true);
+  };
+
+  const confirmDelete = async () => {
+    if (currentServiceId === null) return;
+
+    try {
+      const response = await deleteService(currentServiceId);
       if (response?.data?.success) {
-        fetchServices()
+        toast.success('Service deleted!')
+        fetchServices();
       }
-      
-    }catch(err){
-      console.log(err)
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setOpenConfirmDialog(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchServices();
   }, []);
-  console.log('services',services)
 
   return (
     <div>
@@ -64,6 +77,12 @@ const Service = () => {
           </div>
         ))}
       </div>
+
+      <ConfirmationDialog 
+        open={openConfirmDialog} 
+        onClose={() => setOpenConfirmDialog(false)} 
+        onConfirm={confirmDelete} 
+      />
     </div>
   );
 };

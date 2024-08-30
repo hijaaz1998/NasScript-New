@@ -28,6 +28,14 @@ export const fetchServiceApi = async () => {
   }
 };
 
+export const fetchLoginApi = async () => {
+  try {
+    return await userApi.post('/auth')
+  } catch (error) {
+    
+  }
+}
+
 
 export const fetchSingleServiceApi = async (serviceId:number) =>{
   try {
@@ -48,6 +56,7 @@ export const editServiceApi = async (serviceId: number, data: FormData) => {
 
     // Append serviceId to form data
     data.append("serviceId", serviceId.toString());
+    console.log('Datasendi',data)
 
     return await userApi.put("/editservices", data, config);
   } catch (err) {

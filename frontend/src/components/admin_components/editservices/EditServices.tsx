@@ -13,6 +13,7 @@ import { editServiceApi, fetchSingleServiceApi } from "@/api/Route";
 import { valuesProps } from "../add_services/type";
 import { useFormik } from "formik";
 import { AddServicesSchema } from "@/yup/validation";
+import toast from "react-hot-toast";
 
 interface EditServicesProps {
   serviceId: number;
@@ -41,7 +42,7 @@ export function EditServices({ serviceId, onServiceAdded }: EditServicesProps) {
     initialValues: {
       name: service?.name || "",
       description: service?.description || "",
-      image: null,
+      image: service?.image || null,
     },
     validationSchema: AddServicesSchema,
     onSubmit: async (values: valuesProps) => {
@@ -52,9 +53,14 @@ export function EditServices({ serviceId, onServiceAdded }: EditServicesProps) {
         if (values.image) {
           formData.append("image", values.image);
         }
+        for (let [key, value] of formData.entries()) {
+          console.log("formdata",key, value);
+        }
+        console.log(serviceId)
         const response = await editServiceApi(serviceId, formData);
         console.log(response);
         if (response?.data?.success) {
+          toast.success('Service updated successfully')
           resetForm();
           onServiceAdded();
           setOpen(false);
