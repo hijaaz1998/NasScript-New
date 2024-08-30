@@ -5,13 +5,32 @@ const userApi = axios.create({
   withCredentials: true,
 });
 
+const getToken = () => {
+  return localStorage.getItem("token");
+};
+
+const getConfig = (includeToken: boolean = true) => {
+  const config: any = {
+    withCredentials: true,
+  };
+  
+  if (includeToken) {
+    config.headers = {
+      "Authorization": `Bearer ${getToken()}`,
+    };
+  }
+  
+  return config;
+};
+
 export const addServiceApi = async (data: FormData) => {
   try {
     const config = {
+      ...getConfig(),
       headers: {
+        ...getConfig().headers,
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true,
     };
 
     return await userApi.post("/addservices", data, config);
@@ -22,41 +41,45 @@ export const addServiceApi = async (data: FormData) => {
 
 export const fetchServiceApi = async () => {
   try {
-    return await userApi.get("/services");
+    return await userApi.get("/services", getConfig(false));
   } catch (err) {
     console.error("Error occurred during API call:", err);
   }
 };
 
-export const fetchLoginApi = async () => {
+export const fetchLoginApi = async (email: string, password: string) => {
   try {
-    return await userApi.post('/auth')
+    const response = await userApi.post("/login", { email, password }, getConfig(false));
+    return response.data; 
   } catch (error) {
-    
+    if (axios.isAxiosError(error) && error.response) {
+      return error.response.data;
+    } else {
+      throw new Error('An unexpected error occurred');
+    }
   }
-}
+};
 
 
-export const fetchSingleServiceApi = async (serviceId:number) =>{
+export const fetchSingleServiceApi = async (serviceId: number) => {
   try {
-    return await userApi.get(`/editservice/${serviceId}`)
+    return await userApi.get(`/editservice/${serviceId}`, getConfig());
   } catch (err) {
-    console.log(err)
+    console.error("Error occurred during API call:", err);
   }
-}
+};
 
 export const editServiceApi = async (serviceId: number, data: FormData) => {
   try {
     const config = {
+      ...getConfig(),
       headers: {
+        ...getConfig().headers,
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true,
     };
 
-    // Append serviceId to form data
     data.append("serviceId", serviceId.toString());
-    console.log('Datasendi',data)
 
     return await userApi.put("/editservices", data, config);
   } catch (err) {
@@ -64,11 +87,10 @@ export const editServiceApi = async (serviceId: number, data: FormData) => {
   }
 };
 
-export const deleteService = async (serviceId:number) =>{
-  try{
-    return await userApi.delete(`/deleteservice/${serviceId}`)
-  }catch(err){
-    console.log(err)
+export const deleteService = async (serviceId: number) => {
+  try {
+    return await userApi.delete(`/deleteservice/${serviceId}`, getConfig());
+  } catch (err) {
+    console.error("Error occurred during API call:", err);
   }
-}
-
+};

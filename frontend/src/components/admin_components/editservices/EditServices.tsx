@@ -60,7 +60,7 @@ export function EditServices({ serviceId, onServiceAdded }: EditServicesProps) {
         const response = await editServiceApi(serviceId, formData);
         console.log(response);
         if (response?.data?.success) {
-          toast.success('Service updated successfully')
+          toast.success('Service updated')
           resetForm();
           onServiceAdded();
           setOpen(false);

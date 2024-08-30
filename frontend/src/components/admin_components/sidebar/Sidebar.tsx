@@ -1,4 +1,5 @@
-import { FaHome, FaChartBar, FaCog, FaArrowLeft } from "react-icons/fa";
+import { FaHome, FaChartBar, FaCog, FaArrowLeft, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -6,6 +7,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate('/admin')
+  };
+
   return (
     <div
       className={`bg-gray-900 text-white w-64 h-screen p-4 fixed md:relative transform ${
@@ -35,6 +42,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             <a href="#" className="text-gray-300 hover:text-white">
               Settings
             </a>
+          </li>
+          <li className="flex items-center py-2 hover:bg-gray-800 rounded-md cursor-pointer" onClick={handleLogout}>
+            <FaSignOutAlt className="mr-3" />
+            <span className="text-gray-300 hover:text-white">Logout</span>
           </li>
         </ul>
       </nav>

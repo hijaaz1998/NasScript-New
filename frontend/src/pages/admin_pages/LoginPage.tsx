@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { fetchLoginApi } from "@/api/Route";
+import toast from "react-hot-toast";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -10,39 +13,52 @@ const LoginSchema = Yup.object().shape({
 });
 
 export function LoginPage() {
-  const {
-    values,
-    errors,
-    touched,
-    handleBlur,
-    handleSubmit,
-    handleChange,
-  } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: LoginSchema,
-    onSubmit: async (values) => {
-      try {
+  const navigate = useNavigate();
 
-         const response = await axios.post('/api/login', values);
-        console.log('Login successful:', response.data);
-
-
-      } catch (err) {
-        console.error('Login error:', err);
-      }
-    },
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/admin/dashboard");
+    }
   });
+
+  const { values, errors, touched, handleBlur, handleSubmit, handleChange } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      validationSchema: LoginSchema,
+      onSubmit: async (values) => {
+         try {
+            const response = await fetchLoginApi(values.email, values.password);
+            if (response.success) {
+              toast.success(response.message);
+              localStorage.setItem("token", response.token);
+              navigate("/admin/dashboard");
+            } else {
+              toast.error(response.message);
+            }
+          } catch (err) {
+            console.error("Login error:", err);
+            toast.error('An unexpected error occurred');
+          }
+      },
+    });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">Login</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">
+          Login
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -57,7 +73,12 @@ export function LoginPage() {
             )}
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
             <input
               type="password"
               name="password"

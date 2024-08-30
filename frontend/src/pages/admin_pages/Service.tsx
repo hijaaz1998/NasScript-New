@@ -34,7 +34,7 @@ const Service = () => {
     try {
       const response = await deleteService(currentServiceId);
       if (response?.data?.success) {
-        toast.success('Service deleted!')
+        toast.success('Service deleted')
         fetchServices();
       }
     } catch (err) {

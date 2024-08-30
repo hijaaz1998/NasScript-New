@@ -4,21 +4,20 @@ import {
   getServiceDetails,
   getSingleServiceDetails,
   editServiceDetails,
-  deleteServiceDetails
+  deleteServiceDetails,
+  adminLogin
 } from "../controller/adminController.js";
 import upload from "../config/multer.js";
-// import { isAuthenticated, isAdmin } from "../middleware/auth.js"; // Adjust the path as needed
+import { isAuthenticated } from "../middleware/auth.js";
 
 const Routes = express.Router();
 
-// Public route
 Routes.get("/services", getServiceDetails);
+Routes.post("/login", adminLogin); 
 
-// Admin-only routes
-// Routes.use(isAuthenticated, isAdmin); // Apply middleware to all subsequent routes
+Routes.use(isAuthenticated); 
 
 Routes.post("/addservices", upload.single('image'), addServiceDetails);
-// Routes.post("/login", upload.single('image'), adminLoginogin); // Assuming login should not have admin restriction
 Routes.get("/editservice/:serviceId", getSingleServiceDetails);
 Routes.put("/editservices", upload.single('image'), editServiceDetails);
 Routes.delete("/deleteservice/:serviceId", deleteServiceDetails);

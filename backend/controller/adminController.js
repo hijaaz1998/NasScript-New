@@ -1,7 +1,39 @@
-import { imageUpload } from "../utils/cloudinary.js";
 import path from 'path';
 import fs from 'fs';
 import serviceModel from "../models/serviceModel.js";
+import User from "../models/userModel.js";
+import jwt from 'jsonwebtoken';
+
+export const adminLogin = async (req, res) => {
+  try {
+    const {email, password} = req.body;
+    console.log(req.body)
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: 'Email and password are required' });
+    }
+
+    const user = await User.findOne({email});
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'Invalid credentials' });
+    }
+
+    if (user.password !== password) {
+      return res.status(400).json({ success: false,  message: 'Invalid credentials' });
+    }
+
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '4h' }
+    );
+
+    res.status(200).json({success: true, message: 'Login succcessfull', token})
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
 
 export const addServiceDetails = async (req, res) => {
   try {
