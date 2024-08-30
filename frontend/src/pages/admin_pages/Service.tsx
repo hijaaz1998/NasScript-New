@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const Service = () => {
   const [services, setServices] = useState<ServiceProps[]>([]);
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
-  const [currentServiceId, setCurrentServiceId] = useState<number | null>(null);
+  const [currentServiceId, setCurrentServiceId] = useState<string | null>(null);
 
   const fetchServices = async () => {
     try {
@@ -23,7 +23,7 @@ const Service = () => {
     }
   };
 
-  const handleDelete = (serviceId: number) => {
+  const handleDelete = (serviceId: string) => {
     setCurrentServiceId(serviceId);
     setOpenConfirmDialog(true);
   };
@@ -48,6 +48,8 @@ const Service = () => {
     fetchServices();
   }, []);
 
+  console.log(services)
+
   return (
     <div>
       <div className="flex justify-end mb-5">
@@ -67,6 +69,7 @@ const Service = () => {
             <p>{service.description}</p>
             <div className="flex justify-end mt-4 space-x-2">
               <EditServices serviceId={service._id} onServiceAdded={fetchServices}/>
+              <span>{service._id}</span>
               <button
                 className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 onClick={() => handleDelete(service._id)}

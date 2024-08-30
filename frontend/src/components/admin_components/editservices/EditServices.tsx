@@ -16,7 +16,7 @@ import { AddServicesSchema } from "@/yup/validation";
 import toast from "react-hot-toast";
 
 interface EditServicesProps {
-  serviceId: number;
+  serviceId: string;
   onServiceAdded: () => void;
 }
 

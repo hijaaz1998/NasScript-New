@@ -89,20 +89,30 @@ export const getServiceDetails = async (req, res) => {
 };
 
 
-export const getSingleServiceDetails = async (req,res) =>{
-  try{
-    const serviceData = await serviceModel.find({_id:req.params.serviceId})
+export const getSingleServiceDetails = async (req, res) => {
+  try {
+    const serviceData = await serviceModel.findOne({ _id: req.params.serviceId });
+
     if (!serviceData) {
       return res.status(404).json({ error: "No service data found" });
     }
+
+    const dataWithUrl = {
+      ...serviceData._doc,
+      image: `${req.protocol}://${req.get('host')}/${serviceData.image}`,
+    };
+
     return res.status(200).json({
       success: true,
-      data: serviceData,
+      data: dataWithUrl,
     });
-  }catch(err){
-    console.log(err)
+  } catch (err) {
+    console.error("Error fetching service details:", err);
+    return res.status(500).json({ error: "Server error" });
   }
-}
+};
+
+
 
 
 export const editServiceDetails = async (req, res) => {

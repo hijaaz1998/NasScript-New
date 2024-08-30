@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import ServiceCard from '../../components/user_components/common/service_card/ServiceCard';
-import { serviceCardProps } from '@/components/user_components/common/service_card/type';
-import { fetchServiceApi } from '@/api/Route'; 
+import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
+import ServiceCard from "../../components/user_components/common/service_card/ServiceCard";
+import { serviceCardProps } from "@/components/user_components/common/service_card/type";
+import { fetchServiceApi } from "@/api/Route";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,7 +43,9 @@ const Services = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-5xl font-semibold">Our Services</h1>
             <p className="mt-4 text-1xl text-center text-white">
-              From consulting and strategy development to implementation and support, <br /> our comprehensive services can help your business thrive.
+              From consulting and strategy development to implementation and
+              support, <br /> our comprehensive services can help your business
+              thrive.
             </p>
           </div>
         </div>
@@ -50,17 +53,19 @@ const Services = () => {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate={isInView1 ? 'show' : 'hidden'}
+        animate={isInView1 ? "show" : "hidden"}
         className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10"
         ref={ref1}
       >
-        {servicesData.map((service, index) => (
-          <ServiceCard
-            key={index}
-            imgSrc={service.image} 
-            title={service.name}
-            description={service.description}
-          />
+        {servicesData.map((service) => (
+          <Link to={`/services/${service._id}`} key={service._id}>
+            <ServiceCard
+              imgSrc={service.image}
+              title={service.name}
+              description={service.description}
+              _id={service._id}
+            />
+          </Link>
         ))}
       </motion.div>
     </div>

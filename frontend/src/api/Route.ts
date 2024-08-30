@@ -61,7 +61,7 @@ export const fetchLoginApi = async (email: string, password: string) => {
 };
 
 
-export const fetchSingleServiceApi = async (serviceId: number) => {
+export const fetchSingleServiceApi = async (serviceId: string) => {
   try {
     return await userApi.get(`/editservice/${serviceId}`, getConfig());
   } catch (err) {
@@ -69,7 +69,7 @@ export const fetchSingleServiceApi = async (serviceId: number) => {
   }
 };
 
-export const editServiceApi = async (serviceId: number, data: FormData) => {
+export const editServiceApi = async (serviceId: string, data: FormData) => {
   try {
     const config = {
       ...getConfig(),
@@ -87,7 +87,7 @@ export const editServiceApi = async (serviceId: number, data: FormData) => {
   }
 };
 
-export const deleteService = async (serviceId: number) => {
+export const deleteService = async (serviceId: string) => {
   try {
     return await userApi.delete(`/deleteservice/${serviceId}`, getConfig());
   } catch (err) {
